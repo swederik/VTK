@@ -286,7 +286,7 @@ void vtkMultiThreader::SingleMethodExecute()
 
   pthread_attr_init(&attr);
 #if !defined(__CYGWIN__)
-  pthread_attr_setscope(&attr, PTHREAD_SCOPE_PROCESS);
+  //pthread_attr_setscope(&attr, PTHREAD_SCOPE_PROCESS);
 #endif
 
   for ( thread_loop = 1; thread_loop < this->NumberOfThreads; thread_loop++ )
@@ -420,7 +420,7 @@ void vtkMultiThreader::MultipleMethodExecute()
 
   pthread_attr_init(&attr);
 #ifndef __CYGWIN__
-  pthread_attr_setscope(&attr, PTHREAD_SCOPE_PROCESS);
+  //pthread_attr_setscope(&attr, PTHREAD_SCOPE_PROCESS);
 #endif
 
   for ( thread_loop = 1; thread_loop < this->NumberOfThreads; thread_loop++ )
@@ -511,7 +511,7 @@ int vtkMultiThreader::SpawnThread( vtkThreadFunctionType f, void *userdata )
   pthread_attr_t attr;
   pthread_attr_init(&attr);
 #ifndef __CYGWIN__
-  pthread_attr_setscope(&attr, PTHREAD_SCOPE_PROCESS);
+  //pthread_attr_setscope(&attr, PTHREAD_SCOPE_PROCESS);
 #endif
 
   pthread_create( &(this->SpawnedThreadProcessID[id]),
